@@ -1,16 +1,18 @@
+package ppj05;
+
 import java.util.Scanner;
 
 public class Exercise5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("How many words do you want to enter?: ");
+        System.out.print("Number of words: ");
         int words_number = sc.nextInt();
 
         String[] arr = new String[words_number];
 
         for (int i = 0; i < words_number; i++) {
-            System.out.print("Enter word: ");
+            System.out.printf("Word %d: ", i + 1);
             arr[i] = sc.next();
         }
 

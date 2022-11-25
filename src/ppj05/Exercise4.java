@@ -1,3 +1,5 @@
+package ppj05;
+
 public class Exercise4 {
     public static void main(String[] args) {
         int n = 5;

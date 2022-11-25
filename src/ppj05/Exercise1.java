@@ -9,16 +9,16 @@ public class Exercise1 {
         int day = date.getDayOfMonth();
         int month = date.getMonthValue();
 
-        int howManyDays = day - 1;
+        int days_passed = day - 1;
 
         for (int i = 1; i < month; i++) {
-            howManyDays += switch (i) {
+            days_passed += switch (i) {
                 case 1, 3, 5, 7, 8, 10, 12 -> 31;
                 case 4, 6, 9, 11 -> 30;
-                default -> 28;
+                default -> date.isLeapYear() ? 29 : 28;
             };
         }
 
-        System.out.println(howManyDays);
+        System.out.printf("It has been %d days since the beginning of the year.", days_passed);
     }
 }
