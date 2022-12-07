@@ -25,5 +25,5 @@ hs_err_pid*
 # Desktop Services Store
 *.DS_Store
 
-out
-tests
+/out
+/tests
