@@ -1,7 +1,5 @@
 package ppj08;
 
-import java.util.Arrays;
-
 public class Exercise3 {
     public static void main(String[] args) {
         int[][] tab = {
@@ -10,15 +8,15 @@ public class Exercise3 {
                 {0, 0, 1}
         };
 
-        System.out.println(Arrays.toString(matrixToArray(tab)));
+        printArray(jaggedArrayToArray(tab));
     }
 
-    private static int[] matrixToArray(int[][] matrix) {
-        int[] arr = new int[countMatrixElements(matrix)];
+    private static int[] jaggedArrayToArray(int[][] jaggedArr) {
+        int[] arr = new int[countJaggedArrayElements(jaggedArr)];
 
         int idx = 0;
 
-        for (int[] row : matrix) {
+        for (int[] row : jaggedArr) {
             for (int col : row) {
                 arr[idx++] = col;
             }
@@ -27,15 +25,23 @@ public class Exercise3 {
         return arr;
     }
 
-    private static int countMatrixElements(int[][] matrix) {
+    private static int countJaggedArrayElements(int[][] jaggedArr) {
         int elems = 0;
 
-        for (int[] row : matrix) {
-            for (int ignored : row) {
-                elems++;
-            }
+        for (int[] row : jaggedArr) {
+            elems += row.length;
         }
 
         return elems;
+    }
+
+    private static void printArray(int[] arr) {
+        System.out.print('[');
+
+        for (int i : arr) {
+            System.out.print(i + ", ");
+        }
+
+        System.out.println(']');
     }
 }
