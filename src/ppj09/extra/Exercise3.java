@@ -1,35 +1,42 @@
 package ppj09.extra;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 public class Exercise3 {
-    public static void main(String[] args) {
-        String[] words = {"My", null, "is", "John", "Cena"};
-        String[] forbiddenWords = {null, "Cena"};
+    private static String[] getCensoredArray(String[] words, String[] forbiddenWords) {
+        int size = words.length - countForbiddenWords(words, forbiddenWords);
+        String[] censoredArray = new String[size];
+        int index = 0;
 
-        System.out.println(Arrays.toString(censor(words, forbiddenWords)));
+        for (String word : words) {
+            if (!isForbidden(word, forbiddenWords)) {
+                censoredArray[index++] = word;
+            }
+        }
+
+        return censoredArray;
     }
 
-    private static String[] censor(String[] words, String[] forbiddenWords) {
-        String[] censoredArr = new String[getForbiddenWordsFrequency(words, forbiddenWords)];
-
-
-
-        return censoredArr;
-    }
-
-    private static int getForbiddenWordsFrequency(String[] words, String[] forbiddenWords) {
+    private static int countForbiddenWords(String[] words, String[] forbiddenWords) {
         int forbiddenWordsCount = 0;
 
-        for (String forbiddenWord : forbiddenWords) {
-            for (String word : words) {
-                if (Objects.equals(word, forbiddenWord)) {
-                    forbiddenWordsCount++;
-                }
+        for (String word : words) {
+            if (isForbidden(word, forbiddenWords)) {
+                forbiddenWordsCount++;
             }
         }
 
         return forbiddenWordsCount;
+    }
+
+    private static boolean isForbidden(String word, String[] forbiddenWords) {
+        boolean isForbidden = false;
+
+        for (String forbiddenWord : forbiddenWords) {
+            if (word.equals(forbiddenWord)) {
+                isForbidden = true;
+                break;
+            }
+        }
+
+        return isForbidden;
     }
 }

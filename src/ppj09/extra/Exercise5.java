@@ -1,19 +1,15 @@
 package ppj09.extra;
 
 public class Exercise5 {
-    public static void main(String[] args) {
-        System.out.println(pow(2, 2));
-    }
-
     private static void printArray(int[] arr) {
         for (int j : arr) {
-            System.out.println(j + " ");
+            System.out.println(j + ' ');
         }
     }
 
     private static void printArrayRec(int[] arr, int startIdx) {
         if (startIdx < arr.length) {
-            System.out.print(arr[startIdx] + " ");
+            System.out.print(arr[startIdx] + ' ');
             printArrayRec(arr, startIdx + 1);
         }
     }
