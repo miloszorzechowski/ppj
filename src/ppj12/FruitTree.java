@@ -2,7 +2,7 @@ package ppj12;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Tree {
+public class FruitTree {
     public static Fruit pickFruit() {
         Fruit randomFruit;
         int randomNumber = ThreadLocalRandom.current().nextInt(0, 3);

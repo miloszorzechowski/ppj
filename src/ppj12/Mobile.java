@@ -1,9 +1,9 @@
 package ppj12;
 
-public class CellPhone extends Phone {
-    private String[] callHistory = new String[10];
+public class Mobile extends Phone {
+    protected String[] callHistory = new String[10];
 
-    public CellPhone(String communicationInterface, String color) {
+    public Mobile(String communicationInterface, String color) {
         super(communicationInterface, color);
     }
 
@@ -22,9 +22,5 @@ public class CellPhone extends Phone {
         for (int index = callHistory.length - 1; index >= 0; index--) {
             System.out.println(callHistory[index]);
         }
-    }
-
-    protected String[] getCallHistory() {
-        return callHistory;
     }
 }
